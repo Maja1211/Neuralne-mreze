@@ -1,0 +1,49 @@
+[System]
+Name='fuzzy'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='e'
+Range=[-4 4]
+NumMFs=3
+MF1='neg':'trimf',[-4 -4 0]
+MF2='nula':'trimf',[-4 0 4]
+MF3='poz':'trimf',[0 4 4]
+
+[Input2]
+Name='de'
+Range=[-4 4]
+NumMFs=3
+MF1='neg':'trimf',[-4 -4 0]
+MF2='nula':'trimf',[-4 0 4]
+MF3='poz':'trimf',[0 4 4]
+
+[Output1]
+Name='u'
+Range=[-2.2 2.2]
+NumMFs=5
+MF1='velikoNeg':'constant',[-2.2]
+MF2='neg':'constant',[-1.1]
+MF3='nula':'constant',[0]
+MF4='poz':'constant',[1.1]
+MF5='velikoPoz':'constant',[2.2]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 4 (1) : 1
+3 1, 3 (1) : 1
+3 2, 4 (1) : 1
+3 3, 5 (1) : 1
